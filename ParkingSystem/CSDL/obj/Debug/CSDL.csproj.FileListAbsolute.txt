@@ -1,0 +1,12 @@
+D:\Driver\DoAnTuan\ParkingSystem\CSDL\bin\Debug\CSDL.dll.config
+D:\Driver\DoAnTuan\ParkingSystem\CSDL\bin\Debug\CSDL.dll
+D:\Driver\DoAnTuan\ParkingSystem\CSDL\bin\Debug\CSDL.pdb
+D:\Driver\DoAnTuan\ParkingSystem\CSDL\bin\Debug\EntityFramework.dll
+D:\Driver\DoAnTuan\ParkingSystem\CSDL\bin\Debug\EntityFramework.SqlServer.dll
+D:\Driver\DoAnTuan\ParkingSystem\CSDL\bin\Debug\EntityFramework.xml
+D:\Driver\DoAnTuan\ParkingSystem\CSDL\bin\Debug\EntityFramework.SqlServer.xml
+D:\Driver\DoAnTuan\ParkingSystem\CSDL\obj\Debug\CSDL.csprojAssemblyReference.cache
+D:\Driver\DoAnTuan\ParkingSystem\CSDL\obj\Debug\CSDL.csproj.CoreCompileInputs.cache
+D:\Driver\DoAnTuan\ParkingSystem\CSDL\obj\Debug\CSDL.csproj.CopyComplete
+D:\Driver\DoAnTuan\ParkingSystem\CSDL\obj\Debug\CSDL.dll
+D:\Driver\DoAnTuan\ParkingSystem\CSDL\obj\Debug\CSDL.pdb
