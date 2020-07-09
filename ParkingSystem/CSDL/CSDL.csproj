@@ -63,6 +63,7 @@
     <Compile Include="Services\Infrastructure\IDbFactory.cs" />
     <Compile Include="Services\Infrastructure\IRepository.cs" />
     <Compile Include="Services\Infrastructure\RepositoryBase.cs" />
+    <Compile Include="Services\Services\F_TheRFID.cs" />
     <Compile Include="Services\Services\F_BaiGiuXe.cs" />
     <Compile Include="Services\Services\F_DangNhap.cs" />
     <Compile Include="Services\Services\F_ChoGiuXe.cs" />
@@ -71,5 +72,6 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

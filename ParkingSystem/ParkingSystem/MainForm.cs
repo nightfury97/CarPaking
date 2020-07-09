@@ -25,7 +25,7 @@ namespace ParkingSystem
             clientId = Guid.NewGuid().ToString();
             client.Connect(clientId);
             client.Subscribe(new string[] { "OpenGate" }, new byte[] { 2 });
-            client.Subscribe(new string[] { "OpenGate" }, new byte[] { 2 });
+            client.Subscribe(new string[] { "RFID" }, new byte[] { 2 });
         }
         delegate void SetImageCallback(string[] arrListStr);
         private void SetImage(string[] arrListStr)
@@ -39,15 +39,54 @@ namespace ParkingSystem
             else
             {
                 tbLis.Text = arrListStr[2];
-                imageBox.Image = Image.FromFile("D:/Driver/DoAnTuan/recognize-license-plate/anh/"+ arrListStr[1]);
-                imageLis.Image = Image.FromFile("D:/Driver/DoAnTuan/recognize-license-plate/anh/crop/" + arrListStr[1]);
+                imageBox.Image = Image.FromFile("D:/Driver/DoAnTuan/CarLiscense/anh/" + arrListStr[1]);
+                imageLis.Image = Image.FromFile("D:/Driver/DoAnTuan/CarLiscense/anh/crop/" + arrListStr[1]);
+                if (arrListStr[0] == "ON")
+                {
+                    lbOn.Visible = true;
+                    lbOff.Visible = false;
+                }
+                else
+                {
+                    lbOn.Visible = false;
+                    lbOff.Visible = true;
+                }
+            }
+        }
+        delegate void SetRFIDCallback(string[] arrListStr);
+        private void SetRFID(string[] arrListStr)
+        {
+
+            if (this.tabParking.InvokeRequired)
+            {
+                SetImageCallback d = new SetImageCallback(SetRFID);
+                this.Invoke(d, new object[] { arrListStr });
+            }
+            else
+            {
+                F_TheRFID frf = new F_TheRFID();
+                string code = arrListStr[1];
+                var the = frf.GetSingleByCondition(x => x.MaCode == code);
+                tbMaRF.Text = the.MaCode;
+                tbTenKhach.Text = the.HoTen;
+                tbBSDK.Text = the.BienSoXe;
             }
         }
         void client_MqttMsgPublishReceived(object sender, MqttMsgPublishEventArgs e)
         {
             string ReceivedMessage = Encoding.UTF8.GetString(e.Message);
-            string[] arrListStr = ReceivedMessage.Split('+');
-            SetImage(arrListStr);
+            string Topic = e.Topic;
+            if(Topic== "OpenGate")
+            {
+                string[] arrListStr = ReceivedMessage.Split('+');
+                SetImage(arrListStr);
+            }
+            if(Topic == "RFID")
+            {
+                var mes = ReceivedMessage.Replace(" ", "");
+                string[] arrListStr = ReceivedMessage.Split('-');
+                SetRFID(arrListStr);
+            }
             //MessageBox.Show(ReceivedMessage);
             //Dispatcher.Invoke(delegate
             //{              // we need this construction because the receiving code in the library and the UI with textbox run on different threads

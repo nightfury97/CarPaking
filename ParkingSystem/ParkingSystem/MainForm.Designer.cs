@@ -42,19 +42,29 @@ namespace ParkingSystem
             this.label2 = new System.Windows.Forms.Label();
             this.RFID = new System.Windows.Forms.TabPage();
             this.tabParking = new System.Windows.Forms.TabPage();
+            this.lbOff = new System.Windows.Forms.Label();
+            this.lbOn = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.tbMaRF = new System.Windows.Forms.TextBox();
+            this.tbTenKhach = new System.Windows.Forms.TextBox();
             this.tbLis = new System.Windows.Forms.TextBox();
             this.imageLis = new System.Windows.Forms.PictureBox();
             this.imageBox = new System.Windows.Forms.PictureBox();
+            this.tbBSDK = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.tabControl.SuspendLayout();
             this.Parking.SuspendLayout();
+            this.RFID.SuspendLayout();
             this.tabParking.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imageLis)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageBox)).BeginInit();
@@ -167,6 +177,13 @@ namespace ParkingSystem
             // 
             // RFID
             // 
+            this.RFID.Controls.Add(this.dateTimePicker1);
+            this.RFID.Controls.Add(this.label10);
+            this.RFID.Controls.Add(this.label11);
+            this.RFID.Controls.Add(this.label12);
+            this.RFID.Controls.Add(this.textBox1);
+            this.RFID.Controls.Add(this.textBox2);
+            this.RFID.Controls.Add(this.textBox3);
             this.RFID.Location = new System.Drawing.Point(8, 53);
             this.RFID.Margin = new System.Windows.Forms.Padding(6);
             this.RFID.Name = "RFID";
@@ -178,14 +195,16 @@ namespace ParkingSystem
             // 
             // tabParking
             // 
-            this.tabParking.Controls.Add(this.label10);
-            this.tabParking.Controls.Add(this.label9);
+            this.tabParking.Controls.Add(this.lbOff);
+            this.tabParking.Controls.Add(this.lbOn);
             this.tabParking.Controls.Add(this.label8);
             this.tabParking.Controls.Add(this.label7);
+            this.tabParking.Controls.Add(this.label9);
             this.tabParking.Controls.Add(this.label6);
+            this.tabParking.Controls.Add(this.tbBSDK);
             this.tabParking.Controls.Add(this.label5);
-            this.tabParking.Controls.Add(this.textBox1);
-            this.tabParking.Controls.Add(this.textBox2);
+            this.tabParking.Controls.Add(this.tbMaRF);
+            this.tabParking.Controls.Add(this.tbTenKhach);
             this.tabParking.Controls.Add(this.tbLis);
             this.tabParking.Controls.Add(this.imageLis);
             this.tabParking.Controls.Add(this.imageBox);
@@ -197,11 +216,35 @@ namespace ParkingSystem
             this.tabParking.Text = "Theo dõi";
             this.tabParking.UseVisualStyleBackColor = true;
             // 
+            // lbOff
+            // 
+            this.lbOff.AutoSize = true;
+            this.lbOff.Font = new System.Drawing.Font("Microsoft Sans Serif", 29F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbOff.ForeColor = System.Drawing.Color.Red;
+            this.lbOff.Location = new System.Drawing.Point(1039, 635);
+            this.lbOff.Name = "lbOff";
+            this.lbOff.Size = new System.Drawing.Size(195, 89);
+            this.lbOff.TabIndex = 15;
+            this.lbOff.Text = "OFF";
+            this.lbOff.Visible = false;
+            // 
+            // lbOn
+            // 
+            this.lbOn.AutoSize = true;
+            this.lbOn.Font = new System.Drawing.Font("Microsoft Sans Serif", 29F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbOn.ForeColor = System.Drawing.Color.Blue;
+            this.lbOn.Location = new System.Drawing.Point(766, 635);
+            this.lbOn.Name = "lbOn";
+            this.lbOn.Size = new System.Drawing.Size(155, 89);
+            this.lbOn.TabIndex = 15;
+            this.lbOn.Text = "ON";
+            this.lbOn.Visible = false;
+            // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(648, 125);
+            this.label8.Location = new System.Drawing.Point(624, 48);
             this.label8.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(97, 44);
@@ -212,7 +255,7 @@ namespace ParkingSystem
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(648, 518);
+            this.label7.Location = new System.Drawing.Point(624, 340);
             this.label7.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(290, 44);
@@ -223,48 +266,48 @@ namespace ParkingSystem
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(648, 391);
+            this.label6.Location = new System.Drawing.Point(624, 415);
             this.label6.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(148, 44);
+            this.label6.Size = new System.Drawing.Size(182, 44);
             this.label6.TabIndex = 12;
-            this.label6.Text = "Đăng kí";
+            this.label6.Text = "Thẻ RFID";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(648, 268);
+            this.label5.Location = new System.Drawing.Point(624, 152);
             this.label5.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(146, 44);
             this.label5.TabIndex = 11;
             this.label5.Text = "Biển số";
             // 
-            // textBox1
+            // tbMaRF
             // 
-            this.textBox1.Location = new System.Drawing.Point(967, 391);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(301, 47);
-            this.textBox1.TabIndex = 10;
+            this.tbMaRF.Location = new System.Drawing.Point(1024, 412);
+            this.tbMaRF.Name = "tbMaRF";
+            this.tbMaRF.Size = new System.Drawing.Size(301, 47);
+            this.tbMaRF.TabIndex = 10;
             // 
-            // textBox2
+            // tbTenKhach
             // 
-            this.textBox2.Location = new System.Drawing.Point(967, 518);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(301, 47);
-            this.textBox2.TabIndex = 9;
+            this.tbTenKhach.Location = new System.Drawing.Point(1024, 340);
+            this.tbTenKhach.Name = "tbTenKhach";
+            this.tbTenKhach.Size = new System.Drawing.Size(301, 47);
+            this.tbTenKhach.TabIndex = 9;
             // 
             // tbLis
             // 
-            this.tbLis.Location = new System.Drawing.Point(967, 265);
+            this.tbLis.Location = new System.Drawing.Point(840, 152);
             this.tbLis.Name = "tbLis";
-            this.tbLis.Size = new System.Drawing.Size(301, 47);
+            this.tbLis.Size = new System.Drawing.Size(501, 47);
             this.tbLis.TabIndex = 8;
             // 
             // imageLis
             // 
-            this.imageLis.Location = new System.Drawing.Point(834, 83);
+            this.imageLis.Location = new System.Drawing.Point(840, 27);
             this.imageLis.Name = "imageLis";
             this.imageLis.Size = new System.Drawing.Size(501, 103);
             this.imageLis.TabIndex = 1;
@@ -279,29 +322,85 @@ namespace ParkingSystem
             this.imageBox.TabIndex = 0;
             this.imageBox.TabStop = false;
             // 
+            // tbBSDK
+            // 
+            this.tbBSDK.Location = new System.Drawing.Point(1022, 499);
+            this.tbBSDK.Name = "tbBSDK";
+            this.tbBSDK.Size = new System.Drawing.Size(303, 47);
+            this.tbBSDK.TabIndex = 10;
+            // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 29F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.Blue;
-            this.label9.Location = new System.Drawing.Point(766, 635);
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(624, 499);
+            this.label9.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(155, 89);
-            this.label9.TabIndex = 15;
-            this.label9.Text = "ON";
-            this.label9.Visible = false;
+            this.label9.Size = new System.Drawing.Size(278, 44);
+            this.label9.TabIndex = 12;
+            this.label9.Text = "Biển số đăng kí";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 29F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.Red;
-            this.label10.Location = new System.Drawing.Point(1039, 635);
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(86, 168);
+            this.label10.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(195, 89);
-            this.label10.TabIndex = 15;
-            this.label10.Text = "OFF";
-            this.label10.Visible = false;
+            this.label10.Size = new System.Drawing.Size(290, 44);
+            this.label10.TabIndex = 19;
+            this.label10.Text = "Tên khách hàng";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(86, 255);
+            this.label11.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(278, 44);
+            this.label11.TabIndex = 17;
+            this.label11.Text = "Biển số đăng kí";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(86, 96);
+            this.label12.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(182, 44);
+            this.label12.TabIndex = 18;
+            this.label12.Text = "Thẻ RFID";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(486, 252);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(428, 47);
+            this.textBox1.TabIndex = 15;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(486, 168);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(428, 47);
+            this.textBox2.TabIndex = 16;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(486, 96);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(428, 47);
+            this.textBox3.TabIndex = 14;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker1.Location = new System.Drawing.Point(486, 355);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(428, 47);
+            this.dateTimePicker1.TabIndex = 20;
             // 
             // MainForm
             // 
@@ -316,6 +415,8 @@ namespace ParkingSystem
             this.tabControl.ResumeLayout(false);
             this.Parking.ResumeLayout(false);
             this.Parking.PerformLayout();
+            this.RFID.ResumeLayout(false);
+            this.RFID.PerformLayout();
             this.tabParking.ResumeLayout(false);
             this.tabParking.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imageLis)).EndInit();
@@ -343,12 +444,21 @@ namespace ParkingSystem
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox tbMaRF;
+        private System.Windows.Forms.TextBox tbTenKhach;
         private System.Windows.Forms.TextBox tbLis;
         private System.Windows.Forms.PictureBox imageLis;
-        private Label label10;
+        private Label lbOff;
+        private Label lbOn;
         private Label label9;
+        private TextBox tbBSDK;
+        private DateTimePicker dateTimePicker1;
+        private Label label10;
+        private Label label11;
+        private Label label12;
+        private TextBox textBox1;
+        private TextBox textBox2;
+        private TextBox textBox3;
     }
 }
 

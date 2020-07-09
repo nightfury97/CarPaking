@@ -16,6 +16,9 @@ namespace CSDL.EF
         [StringLength(15)]
         public string BienSoXe { get; set; }
 
+        [StringLength(50)]
+        public string HoTen { get; set; }
+
         public int? TrangThai { get; set; }
 
         public DateTime? ThoiGianBatDau { get; set; }

@@ -101,10 +101,12 @@ create table TheRFID
 (
 	MaCode varchar(30) primary key,
 	BienSoXe varchar(15),
+	HoTen nvarchar(50),
 	TrangThai int,
 	ThoiGianBatDau datetime default getdate(),
 	ThoiGianKetThuc datetime
 )
+
 drop FUNCTION if exists dbo.GetCarParking
 go
 CREATE FUNCTION dbo.GetCarParking 
