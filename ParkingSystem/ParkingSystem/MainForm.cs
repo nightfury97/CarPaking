@@ -20,12 +20,12 @@ namespace ParkingSystem
         public MainForm()
         {
             InitializeComponent();
-            client = new MqttClient("192.168.8.100");
-            client.MqttMsgPublishReceived += client_MqttMsgPublishReceived;
-            clientId = Guid.NewGuid().ToString();
-            client.Connect(clientId);
-            client.Subscribe(new string[] { "OpenGate" }, new byte[] { 2 });
-            client.Subscribe(new string[] { "RFID" }, new byte[] { 2 });
+            //client = new MqttClient("192.168.8.100");
+            //client.MqttMsgPublishReceived += client_MqttMsgPublishReceived;
+            //clientId = Guid.NewGuid().ToString();
+            //client.Connect(clientId);
+            //client.Subscribe(new string[] { "OpenGate" }, new byte[] { 2 });
+            //client.Subscribe(new string[] { "RFID" }, new byte[] { 2 });
         }
         delegate void SetImageCallback(string[] arrListStr);
         private void SetImage(string[] arrListStr)
@@ -111,6 +111,73 @@ namespace ParkingSystem
         private void Parking_Click(object sender, EventArgs e)
         {
            
+        }
+
+        private void label14_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label13_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label12_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btDK_Click(object sender, EventArgs e)
+        {
+            string msrfid = tbRFID.Text;
+            string tenkh = tbTKH.Text;
+            string bsxdk = tbBSXDK.Text;
+            DateTime bd = dtpBD.Value;
+            DateTime kt = dtpKT.Value;
+            TheRFID trf = new TheRFID();
+            F_TheRFID ftrf = new F_TheRFID();
+            trf.MaCode = msrfid;
+            trf.HoTen = tenkh;
+            trf.TrangThai = 1;
+            trf.BienSoXe = bsxdk;
+            trf.ThoiGianBatDau = bd;
+            trf.ThoiGianKetThuc = kt;
+            ftrf.Add(trf);
+            ftrf.Save();
+        }
+
+        private void btGH_Click(object sender, EventArgs e)
+        {
+            string msrfid = tbRFID.Text;
+            string tenkh = tbTKH.Text;
+            string bsxdk = tbBSXDK.Text;
+            DateTime bd = dtpBD.Value;
+            DateTime kt = dtpKT.Value;
+            F_TheRFID ftrf = new F_TheRFID();
+            TheRFID trf = ftrf.GetSingleByCondition(x => x.MaCode == msrfid);
+            trf.HoTen = tenkh;
+            trf.TrangThai = 1;
+            trf.BienSoXe = bsxdk;
+            trf.ThoiGianBatDau = bd;
+            trf.ThoiGianKetThuc = kt;
+            ftrf.Save();
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

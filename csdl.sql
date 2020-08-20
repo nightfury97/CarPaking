@@ -74,7 +74,8 @@ create table Xe_TaiKhoan
 	DangNhap varchar(30),
 	TrangThai int, --1 Da dat cho, 2 da thanh toan, 3 dang su dung, 4 datraxe
 	ThoiGianDatCho datetime default getdate(),
-	ID_Vitri int references ChoGiuXe(ID)
+	ID_Vitri int references ChoGiuXe(ID),
+	TaiKhoan varchar(30) references TaiKhoan(DangNhap)
 )
 drop table if exists Xe
 create table Xe
@@ -114,7 +115,7 @@ CREATE FUNCTION dbo.GetCarParking
 RETURNS nvarchar(max)
 AS
 	begin
-		declare @out varchar(9)
+		declare @out varchar(max)
 		set @out = (select * from dbo.BaiGiuXe where DaCoXe < TongSoCho for json auto)
 		return (@out)
 	end
@@ -157,8 +158,9 @@ END
 --go
 
 insert into TaiKhoan values('Tuan','1',N'Bùi Đức Tuấn','0886938129',1000000000)
-insert into TheRFID values('B2D1C849','51A-175.56',1,'20200702','20201202')--anh 1
-insert into TheRFID values('F5753E2A','60A-696.97',1,'20200702','20201202')--anh 2
-insert into TheRFID values('F29E9F0D','30E-921.15',1,'20200702','20201202')--anh 3
+insert into TheRFID values('B2D1C849','51A-175.56',N'Bùi Đức Tuấn',1,'20200702','20201202')--anh 1
+insert into TheRFID values('F5753E2A','60A-696.97',N'Bùi Đức Tuấn',1,'20200702','20201202')--anh 2
+insert into TheRFID values('F29E9F0D','30E-921.15',N'Bùi Đức Tuấn',1,'20200702','20201202')--anh 3
 
 SELECT dbo.GetLiscense('B2D1C849') as carparking
+SELECT dbo.GetCarParking() as parking

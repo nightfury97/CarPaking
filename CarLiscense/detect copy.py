@@ -9,7 +9,7 @@ import imutils
 os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = 'client_key.json'
 
 # Source path content all images
-SOURCE_PATH = "D:/Driver/DoAnTuan/recognize-license-plate/anh/"
+SOURCE_PATH = "D:/Driver/DoAnTuan/CarLiscense/anh/"
 
 
 def recognize_license_plate(img_path):
